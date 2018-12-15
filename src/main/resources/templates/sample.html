@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Excel Download</title>
+</head>
+<body>
+
+<a href="/excel/download">엑셀다운</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>이름</th>
+        <th>값1</th>
+        <th>값2</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${list}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${#numbers.formatInteger(item.value1, 1, 'COMMA')}"></td>
+        <td th:text="${#numbers.formatInteger(item.value2, 1, 'COMMA')}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
